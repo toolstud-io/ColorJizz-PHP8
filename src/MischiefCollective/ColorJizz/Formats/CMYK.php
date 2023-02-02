@@ -121,6 +121,7 @@ class CMYK extends ColorJizz
      * Convert the color to RGB format.
      *
      * @return RGB the color in RGB format
+     * @throws InvalidArgumentException
      */
     public function toRGB(): RGB
     {
@@ -131,6 +132,7 @@ class CMYK extends ColorJizz
      * Convert the color to XYZ format.
      *
      * @return XYZ the color in XYZ format
+     * @throws InvalidArgumentException
      */
     public function toXYZ(): XYZ
     {
@@ -141,6 +143,7 @@ class CMYK extends ColorJizz
      * Convert the color to Yxy format.
      *
      * @return Yxy the color in Yxy format
+     * @throws InvalidArgumentException
      */
     public function toYxy(): Yxy
     {
@@ -151,6 +154,7 @@ class CMYK extends ColorJizz
      * Convert the color to HSL format.
      *
      * @return HSL the color in HSL format
+     * @throws InvalidArgumentException
      */
     public function toHSL(): HSL
     {
@@ -161,6 +165,7 @@ class CMYK extends ColorJizz
      * Convert the color to HSV format.
      *
      * @return HSV the color in HSV format
+     * @throws InvalidArgumentException
      */
     public function toHSV(): HSV
     {
@@ -195,6 +200,7 @@ class CMYK extends ColorJizz
      * Convert the color to CIELab format.
      *
      * @return CIELab the color in CIELab format
+     * @throws InvalidArgumentException
      */
     public function toCIELab(): CIELab
     {
@@ -205,6 +211,7 @@ class CMYK extends ColorJizz
      * Convert the color to CIELCh format.
      *
      * @return CIELCh the color in CIELCh format
+     * @throws InvalidArgumentException
      */
     public function toCIELCh(): CIELCh
     {

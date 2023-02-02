@@ -103,6 +103,7 @@ class Yxy extends ColorJizz
      * Convert the color to HSL format.
      *
      * @return HSL the color in HSL format
+     * @throws InvalidArgumentException
      */
     public function toHSL(): HSL
     {

@@ -278,7 +278,7 @@ class Hex extends ColorJizz
      * @return Hex the color in Hex format
      * @throws InvalidArgumentException
      */
-    public static function create(int $hex): Hex
+    public static function create(int $hex): self
     {
         return new self($hex);
     }
@@ -409,7 +409,7 @@ class Hex extends ColorJizz
             return $aColorNames[$this->hex];
         }
 
-        return "";
+        return '';
     }
 
     /**
@@ -436,7 +436,7 @@ class Hex extends ColorJizz
      * @return Hex the color in Hex format
      * @throws InvalidArgumentException
      */
-    public static function fromString(string $str): Hex
+    public static function fromString(string $str): self
     {
         $str = strtolower($str);
 

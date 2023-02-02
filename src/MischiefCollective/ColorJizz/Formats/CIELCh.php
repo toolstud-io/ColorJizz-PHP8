@@ -71,6 +71,7 @@ class CIELCh extends ColorJizz
      * Convert the color to RGB format.
      *
      * @return RGB the color in RGB format
+     * @throws InvalidArgumentException
      */
     public function toRGB(): RGB
     {
@@ -101,6 +102,7 @@ class CIELCh extends ColorJizz
      * Convert the color to HSL format.
      *
      * @return HSL the color in HSL format
+     * @throws InvalidArgumentException
      */
     public function toHSL(): HSL
     {
@@ -111,6 +113,7 @@ class CIELCh extends ColorJizz
      * Convert the color to HSV format.
      *
      * @return HSV the color in HSV format
+     * @throws InvalidArgumentException
      */
     public function toHSV(): HSV
     {
@@ -121,6 +124,7 @@ class CIELCh extends ColorJizz
      * Convert the color to CMY format.
      *
      * @return CMY the color in CMY format
+     * @throws InvalidArgumentException
      */
     public function toCMY(): CMY
     {
@@ -131,6 +135,7 @@ class CIELCh extends ColorJizz
      * Convert the color to CMYK format.
      *
      * @return CMYK the color in CMYK format
+     * @throws InvalidArgumentException
      */
     public function toCMYK(): CMYK
     {
