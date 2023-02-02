@@ -10,37 +10,35 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
-use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
- * CIELCh represents the CIELCh color format
+ * CIELCh represents the CIELCh color format.
  *
  *
  * @author Mikee Franklin <mikeefranklin@gmail.com>
  */
 class CIELCh extends ColorJizz
 {
-
     /**
-     * The lightness
+     * The lightness.
      * @var float
      */
     public $lightness;
 
     /**
-     * The chroma
+     * The chroma.
      * @var float
      */
     public $chroma;
 
     /**
-     * The hue
+     * The hue.
      * @var float
      */
     public $hue;
 
     /**
-     * Create a new CIELCh color
+     * Create a new CIELCh color.
      *
      * @param float $lightness The lightness
      * @param float $chroma The chroma
@@ -48,7 +46,7 @@ class CIELCh extends ColorJizz
      */
     public function __construct($lightness, $chroma, $hue)
     {
-        $this->toSelf = "toCIELCh";
+        $this->toSelf = 'toCIELCh';
         $this->lightness = $lightness;
         $this->chroma = $chroma;
         $this->hue = fmod($hue, 360);
@@ -58,7 +56,7 @@ class CIELCh extends ColorJizz
     }
 
     /**
-     * Convert the color to Hex format
+     * Convert the color to Hex format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
      */
@@ -68,7 +66,7 @@ class CIELCh extends ColorJizz
     }
 
     /**
-     * Convert the color to RGB format
+     * Convert the color to RGB format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
      */
@@ -78,7 +76,7 @@ class CIELCh extends ColorJizz
     }
 
     /**
-     * Convert the color to XYZ format
+     * Convert the color to XYZ format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
      */
@@ -88,7 +86,7 @@ class CIELCh extends ColorJizz
     }
 
     /**
-     * Convert the color to Yxy format
+     * Convert the color to Yxy format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
      */
@@ -98,7 +96,7 @@ class CIELCh extends ColorJizz
     }
 
     /**
-     * Convert the color to HSL format
+     * Convert the color to HSL format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
      */
@@ -108,7 +106,7 @@ class CIELCh extends ColorJizz
     }
 
     /**
-     * Convert the color to HSV format
+     * Convert the color to HSV format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
      */
@@ -118,7 +116,7 @@ class CIELCh extends ColorJizz
     }
 
     /**
-     * Convert the color to CMY format
+     * Convert the color to CMY format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
      */
@@ -128,7 +126,7 @@ class CIELCh extends ColorJizz
     }
 
     /**
-     * Convert the color to CMYK format
+     * Convert the color to CMYK format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
      */
@@ -138,7 +136,7 @@ class CIELCh extends ColorJizz
     }
 
     /**
-     * Convert the color to CIELab format
+     * Convert the color to CIELab format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
      */
@@ -147,11 +145,12 @@ class CIELCh extends ColorJizz
         $hradi = $this->hue * (pi() / 180);
         $a_dimension = cos($hradi) * $this->chroma;
         $b_dimension = sin($hradi) * $this->chroma;
+
         return new CIELab($this->lightness, $a_dimension, $b_dimension);
     }
 
     /**
-     * Convert the color to CIELCh format
+     * Convert the color to CIELCh format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
      */
@@ -161,7 +160,7 @@ class CIELCh extends ColorJizz
     }
 
     /**
-     * A string representation of this color in the current format
+     * A string representation of this color in the current format.
      *
      * @return string The color in format: $lightness,$chroma,$hue
      */

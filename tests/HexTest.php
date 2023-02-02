@@ -1,16 +1,17 @@
 <?php
 
-namespace MischiefCollective\ColorJizz\Tests;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
+use MischiefCollective\ColorJizz\Formats\Hex;
+use PHPUnit\Framework\TestCase;
 
-use MischiefCollective\ColorJizz\Formats\Hex,
-    MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
-
-class HexTest extends \PHPUnit_Framework_TestCase
+class HexTest extends TestCase
 {
-
+    /**
+     * @throws InvalidArgumentException
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
     public function testFromString()
     {
-
         $this->assertEquals(0xDB09E4, Hex::fromString('DB09e4')->hex);
         $this->assertEquals(0x487453, Hex::fromString('487453')->hex);
         $this->assertEquals(0x36F6F6, Hex::fromString('36f6F6')->hex);
@@ -28,35 +29,43 @@ class HexTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0x000000, Hex::fromString('black')->hex);
         $this->assertEquals(0x000000, Hex::fromString('BLAck')->hex);
         $this->assertEquals(0xFF0000, Hex::fromString('red')->hex);
-
     }
 
     /**
-     * @expectedException MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException
+     *
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
      */
     public function testInvalidColorNameException()
     {
+        $this->expectException(MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException::class);
         Hex::fromString('black-');
     }
 
     /**
-     * @expectedException MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException
+     *
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
      */
     public function testInvalidHexValueException()
     {
+        $this->expectException(MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException::class);
         Hex::fromString('#0FW');
     }
 
-
     /**
-     * @expectedException MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException
+     *
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
      */
     public function testMalformedHexValueException()
     {
+        $this->expectException(MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException::class);
         Hex::fromString('# 0FW');
     }
 
-    public function testToString()
+    /**
+     * @return void
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
+    public function testToString(): void
     {
         $this->assertEquals('DACDD3', Hex::create(0xDACDD3)->__toString());
         $this->assertEquals('8207D7', Hex::create(0x8207D7)->__toString());
@@ -72,67 +81,102 @@ class HexTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('000000', Hex::create(0x000000)->__toString());
     }
 
-
-    public function testToRGBAndBack()
+    /**
+     * @return void
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
+    public function testToRGBAndBack(): void
     {
         for ($i = 0; $i <= 0xFFFFFF; $i += 0x0CCCCC) {
             $this->assertEquals($i, Hex::create($i)->toRGB()->toHex()->hex);
         }
     }
 
-    public function testToXYZAndBack()
+    /**
+     * @return void
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
+    public function testToXYZAndBack(): void
     {
         for ($i = 0; $i <= 0xFFFFFF; $i += 0x0CCCCC) {
             $this->assertEquals($i, Hex::create($i)->toXYZ()->toHex()->hex);
         }
     }
 
-    public function testToCMYAndBack()
+    /**
+     * @return void
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
+    public function testToCMYAndBack(): void
     {
         for ($i = 0; $i <= 0xFFFFFF; $i += 0x0CCCCC) {
             $this->assertEquals($i, Hex::create($i)->toCMY()->toHex()->hex);
         }
     }
 
-    public function testToCMYKAndBack()
+    /**
+     * @return void
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
+    public function testToCMYKAndBack(): void
     {
         for ($i = 0; $i <= 0xFFFFFF; $i += 0x0CCCCC) {
             $this->assertEquals($i, Hex::create($i)->toCMYK()->toHex()->hex);
         }
     }
 
-    public function testToYxyAndBack()
+    /**
+     * @return void
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
+    public function testToYxyAndBack(): void
     {
         for ($i = 0; $i <= 0xFFFFFF; $i += 0x0CCCCC) {
             $this->assertEquals($i, Hex::create($i)->toYxy()->toHex()->hex);
         }
     }
 
-    public function testToCIELabAndBack()
+    /**
+     * @return void
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
+    public function testToCIELabAndBack(): void
     {
         for ($i = 0; $i <= 0xFFFFFF; $i += 0x0CCCCC) {
             $this->assertEquals($i, Hex::create($i)->toCIELab()->toHex()->hex);
         }
     }
 
-    public function testToCIELChAndBack()
+    /**
+     * @return void
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
+    public function testToCIELChAndBack(): void
     {
         for ($i = 0; $i <= 0xFFFFFF; $i += 0x0CCCCC) {
             $this->assertEquals($i, Hex::create($i)->toCIELCh()->toHex()->hex);
         }
     }
 
-    public function testToHSVAndBack()
+    /**
+     * @return void
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
+    public function testToHSVAndBack(): void
     {
         for ($i = 0; $i <= 0xFFFFFF; $i += 0x0CCCCC) {
             $this->assertEquals($i, Hex::create($i)->toHSV()->toHex()->hex);
         }
     }
 
-    public function testToHSLAndBack()
+    /**
+     * @return void
+     * @covers \MischiefCollective\ColorJizz\Formats\Hex
+     */
+    public function testToHSLAndBack(): void
     {
         for ($i = 0; $i <= 0xFFFFFF; $i += 0x0CCCCC) {
-          $this->assertEquals($i, Hex::create($i)->toHSL()->toHex()->hex);
+            $this->assertEquals($i, Hex::create($i)->toHSL()->toHex()->hex);
         }
     }
 }

@@ -13,15 +13,14 @@ use MischiefCollective\ColorJizz\ColorJizz;
 use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
- * Hex represents the Hex color format
+ * Hex represents the Hex color format.
  *
  *
  * @author Mikee Franklin <mikeefranklin@gmail.com>
  */
 class Hex extends ColorJizz
 {
-
-    private static $color_names = array(
+    private static $color_names = [
         'black' => 0x000000,
         'darkgreen' => 0x006400,
         'green' => 0x008000,
@@ -247,16 +246,16 @@ class Hex extends ColorJizz
         'ghostwhite' => 0xF8F8FF,
         'snow' => 0xFFFAFA,
         'white' => 0xFFFFFF,
-    );
+    ];
 
     /**
-     * The value of the color
+     * The value of the color.
      * @var int
      */
     public $hex;
 
     /**
-     * Create a new Hex
+     * Create a new Hex.
      *
      * @param int $hex the hexidecimal value (i.e. 0x000000)
      */
@@ -267,11 +266,11 @@ class Hex extends ColorJizz
         }
 
         $this->hex = $hex;
-        $this->toSelf = "toHex";
+        $this->toSelf = 'toHex';
     }
 
     /**
-     * Create a new Hex
+     * Create a new Hex.
      *
      * @param int $hex the hexidecimal value (i.e. 0x000000)
      *
@@ -279,11 +278,11 @@ class Hex extends ColorJizz
      */
     public static function create($hex)
     {
-        return new Hex($hex);
+        return new self($hex);
     }
 
     /**
-     * Convert the color to Hex format
+     * Convert the color to Hex format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
      */
@@ -293,7 +292,7 @@ class Hex extends ColorJizz
     }
 
     /**
-     * Convert the color to RGB format
+     * Convert the color to RGB format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
      */
@@ -302,11 +301,12 @@ class Hex extends ColorJizz
         $red = (($this->hex & 0xFF0000) >> 16);
         $green = (($this->hex & 0x00FF00) >> 8);
         $blue = (($this->hex & 0x0000FF));
+
         return new RGB($red, $green, $blue);
     }
 
     /**
-     * Convert the color to XYZ format
+     * Convert the color to XYZ format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
      */
@@ -316,7 +316,7 @@ class Hex extends ColorJizz
     }
 
     /**
-     * Convert the color to Yxy format
+     * Convert the color to Yxy format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
      */
@@ -326,7 +326,7 @@ class Hex extends ColorJizz
     }
 
     /**
-     * Convert the color to HSL format
+     * Convert the color to HSL format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
      */
@@ -336,7 +336,7 @@ class Hex extends ColorJizz
     }
 
     /**
-     * Convert the color to HSV format
+     * Convert the color to HSV format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
      */
@@ -346,7 +346,7 @@ class Hex extends ColorJizz
     }
 
     /**
-     * Convert the color to CMY format
+     * Convert the color to CMY format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
      */
@@ -356,7 +356,7 @@ class Hex extends ColorJizz
     }
 
     /**
-     * Convert the color to CMYK format
+     * Convert the color to CMYK format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
      */
@@ -366,7 +366,7 @@ class Hex extends ColorJizz
     }
 
     /**
-     * Convert the color to CIELab format
+     * Convert the color to CIELab format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
      */
@@ -376,7 +376,7 @@ class Hex extends ColorJizz
     }
 
     /**
-     * Convert the color to CIELCh format
+     * Convert the color to CIELCh format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
      */
@@ -386,33 +386,33 @@ class Hex extends ColorJizz
     }
 
     /**
-     * Returns the color name if available otherwise returns false
+     * Returns the color name if available otherwise returns false.
      *
      * @return mixed    Color name as string or false if the color has no name
      */
     public function hasColorName()
     {
-      $aColorNames = array_flip(self::$color_names);
+        $aColorNames = array_flip(self::$color_names);
 
-      if(isset($aColorNames[$this->hex])) {
-        return $aColorNames[$this->hex];
-      }
+        if (isset($aColorNames[$this->hex])) {
+            return $aColorNames[$this->hex];
+        }
 
-      return false;
+        return false;
     }
 
-
     /**
-     * A string representation of this color in the current format
+     * A string representation of this color in the current format.
      *
      * @return string The color in format: RRGGBB
      */
     public function __toString()
     {
         $rgb = $this->toRGB();
-        $hex = str_pad(dechex($rgb->getRed()), 2, "0", STR_PAD_LEFT);
-        $hex .= str_pad(dechex($rgb->getGreen()), 2, "0", STR_PAD_LEFT);
-        $hex .= str_pad(dechex($rgb->getBlue()), 2, "0", STR_PAD_LEFT);
+        $hex = str_pad(dechex($rgb->getRed()), 2, '0', STR_PAD_LEFT);
+        $hex .= str_pad(dechex($rgb->getGreen()), 2, '0', STR_PAD_LEFT);
+        $hex .= str_pad(dechex($rgb->getBlue()), 2, '0', STR_PAD_LEFT);
+
         return strtoupper($hex);
     }
 
@@ -428,7 +428,7 @@ class Hex extends ColorJizz
         $str = strtolower($str);
 
         if (array_key_exists($str, self::$color_names)) {
-            return new Hex(self::$color_names[$str]);
+            return new self(self::$color_names[$str]);
         }
 
         if (substr($str, 0, 1) == '#') {
@@ -443,6 +443,6 @@ class Hex extends ColorJizz
             throw new InvalidArgumentException(sprintf('Parameter str is an invalid hex string (%s)', $str));
         }
 
-        return new Hex(hexdec($str));
+        return new self(hexdec($str));
     }
 }

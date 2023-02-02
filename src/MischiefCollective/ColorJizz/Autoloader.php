@@ -10,17 +10,16 @@
 namespace MischiefCollective\ColorJizz;
 
 /**
- * Autoloader is used to autoload the library files
+ * Autoloader is used to autoload the library files.
  *
  *
  * @author Mikee Franklin <mikee@mischiefcollective.com>
  */
 class Autoloader
 {
-
     public static function register()
     {
-        spl_autoload_register(array(new self, 'autoload'));
+        spl_autoload_register([new self, 'autoload']);
     }
 
     public static function autoload($class)
@@ -30,7 +29,7 @@ class Autoloader
         }
 
         if (is_file(
-            $file = dirname(__FILE__) . '/../../' . str_replace(array('\\', "\0"), array('/', ''), $class) . '.php'
+            $file = dirname(__FILE__) . '/../../' . str_replace(['\\', "\0"], ['/', ''], $class) . '.php'
         )
         ) {
             require $file;

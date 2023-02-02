@@ -10,37 +10,35 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
-use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
- * CIELab represents the CIELab color format
+ * CIELab represents the CIELab color format.
  *
  *
  * @author Mikee Franklin <mikeefranklin@gmail.com>
  */
 class CIELab extends ColorJizz
 {
-
     /**
-     * The lightness
+     * The lightness.
      * @var float
      */
     public $lightness;
 
     /**
-     * The a dimension
+     * The a dimension.
      * @var float
      */
     public $a_dimension;
 
     /**
-     * The b dimenson
+     * The b dimenson.
      * @var float
      */
     public $b_dimension;
 
     /**
-     * Create a new CIELab color
+     * Create a new CIELab color.
      *
      * @param float $l The lightness
      * @param float $a The a dimenson
@@ -48,7 +46,7 @@ class CIELab extends ColorJizz
      */
     public function __construct($lightness, $a_dimension, $b_dimension)
     {
-        $this->toSelf = "toCIELab";
+        $this->toSelf = 'toCIELab';
         $this->lightness = $lightness; //$this->roundDec($l, 3);
         $this->a_dimension = $a_dimension; //$this->roundDec($a, 3);
         $this->b_dimension = $b_dimension; //$this->roundDec($b, 3);
@@ -56,11 +54,11 @@ class CIELab extends ColorJizz
 
     public static function create($lightness, $a_dimension, $b_dimension)
     {
-        return new CIELab($lightness, $a_dimension, $b_dimension);
+        return new self($lightness, $a_dimension, $b_dimension);
     }
 
     /**
-     * Convert the color to Hex format
+     * Convert the color to Hex format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
      */
@@ -70,7 +68,7 @@ class CIELab extends ColorJizz
     }
 
     /**
-     * Convert the color to RGB format
+     * Convert the color to RGB format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
      */
@@ -80,7 +78,7 @@ class CIELab extends ColorJizz
     }
 
     /**
-     * Convert the color to XYZ format
+     * Convert the color to XYZ format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
      */
@@ -112,11 +110,12 @@ class CIELab extends ColorJizz
         $position_x = $ref_X * $var_X;
         $position_y = $ref_Y * $var_Y;
         $position_z = $ref_Z * $var_Z;
+
         return new XYZ($position_x, $position_y, $position_z);
     }
 
     /**
-     * Convert the color to Yxy format
+     * Convert the color to Yxy format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
      */
@@ -126,7 +125,7 @@ class CIELab extends ColorJizz
     }
 
     /**
-     * Convert the color to HSL format
+     * Convert the color to HSL format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
      */
@@ -136,7 +135,7 @@ class CIELab extends ColorJizz
     }
 
     /**
-     * Convert the color to HSV format
+     * Convert the color to HSV format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
      */
@@ -146,7 +145,7 @@ class CIELab extends ColorJizz
     }
 
     /**
-     * Convert the color to CMY format
+     * Convert the color to CMY format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
      */
@@ -156,7 +155,7 @@ class CIELab extends ColorJizz
     }
 
     /**
-     * Convert the color to CMYK format
+     * Convert the color to CMYK format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
      */
@@ -166,7 +165,7 @@ class CIELab extends ColorJizz
     }
 
     /**
-     * Convert the color to CIELab format
+     * Convert the color to CIELab format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
      */
@@ -176,7 +175,7 @@ class CIELab extends ColorJizz
     }
 
     /**
-     * Convert the color to CIELCh format
+     * Convert the color to CIELCh format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
      */
@@ -198,7 +197,7 @@ class CIELab extends ColorJizz
     }
 
     /**
-     * A string representation of this color in the current format
+     * A string representation of this color in the current format.
      *
      * @return string The color in format: $lightness,$a_dimension,$b_dimension
      */

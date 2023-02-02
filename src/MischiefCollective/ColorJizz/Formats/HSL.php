@@ -10,37 +10,35 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
-use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
- * HSL represents the HSL color format
+ * HSL represents the HSL color format.
  *
  *
  * @author Drake Parker <e.drake.p@gmail.com>
  */
 class HSL extends ColorJizz
 {
-
     /**
-     * The hue
+     * The hue.
      * @var float
      */
     public $hue;
 
     /**
-     * The saturation
+     * The saturation.
      * @var float
      */
     public $saturation;
 
     /**
-     * The lightness
+     * The lightness.
      * @var float
      */
     public $lightness;
 
     /**
-     * Create a new HSL color
+     * Create a new HSL color.
      *
      * @param float $hue The hue (0-1)
      * @param float $saturation The saturation (0-1)
@@ -48,14 +46,14 @@ class HSL extends ColorJizz
      */
     public function __construct($hue, $saturation, $lightness)
     {
-        $this->toSelf = "toHSL";
+        $this->toSelf = 'toHSL';
         $this->hue = $hue;
         $this->saturation = $saturation;
         $this->lightness = $lightness;
     }
 
     /**
-     * Convert the color to Hex format
+     * Convert the color to Hex format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
      */
@@ -65,7 +63,7 @@ class HSL extends ColorJizz
     }
 
     /**
-     * Convert the color to RGB format
+     * Convert the color to RGB format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
      */
@@ -75,7 +73,7 @@ class HSL extends ColorJizz
     }
 
     /**
-     * Convert the color to XYZ format
+     * Convert the color to XYZ format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
      */
@@ -85,7 +83,7 @@ class HSL extends ColorJizz
     }
 
     /**
-     * Convert the color to Yxy format
+     * Convert the color to Yxy format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
      */
@@ -95,7 +93,7 @@ class HSL extends ColorJizz
     }
 
     /**
-     * Convert the color to HSL format
+     * Convert the color to HSL format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
      */
@@ -105,7 +103,7 @@ class HSL extends ColorJizz
     }
 
     /**
-     * Convert the color to HSV format
+     * Convert the color to HSV format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
      */
@@ -123,7 +121,7 @@ class HSL extends ColorJizz
     }
 
     /**
-     * Convert the color to CMY format
+     * Convert the color to CMY format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
      */
@@ -133,7 +131,7 @@ class HSL extends ColorJizz
     }
 
     /**
-     * Convert the color to CMYK format
+     * Convert the color to CMYK format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
      */
@@ -143,7 +141,7 @@ class HSL extends ColorJizz
     }
 
     /**
-     * Convert the color to CIELab format
+     * Convert the color to CIELab format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
      */
@@ -153,7 +151,7 @@ class HSL extends ColorJizz
     }
 
     /**
-     * Convert the color to CIELCh format
+     * Convert the color to CIELCh format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
      */
@@ -163,7 +161,7 @@ class HSL extends ColorJizz
     }
 
     /**
-     * A string representation of this color in the current format
+     * A string representation of this color in the current format.
      *
      * @return string The color in format: $hue,$saturation,$lightness
      */

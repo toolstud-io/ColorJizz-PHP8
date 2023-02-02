@@ -10,37 +10,35 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
-use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
- * XYZ represents the XYZ color format
+ * XYZ represents the XYZ color format.
  *
  *
  * @author Mikee Franklin <mikeefranklin@gmail.com>
  */
 class XYZ extends ColorJizz
 {
-
     /**
-     * The x
+     * The x.
      * @var float
      */
     public $x;
 
     /**
-     * The y
+     * The y.
      * @var float
      */
     public $y;
 
     /**
-     * The z
+     * The z.
      * @var float
      */
     public $z;
 
     /**
-     * Create a new XYZ color
+     * Create a new XYZ color.
      *
      * @param float $x The x dimension
      * @param float $y The y dimension
@@ -48,14 +46,14 @@ class XYZ extends ColorJizz
      */
     public function __construct($x, $y, $z)
     {
-        $this->toSelf = "toXYZ";
+        $this->toSelf = 'toXYZ';
         $this->x = $x;
         $this->y = $y;
         $this->z = $z;
     }
 
     /**
-     * Convert the color to Hex format
+     * Convert the color to Hex format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
      */
@@ -65,7 +63,7 @@ class XYZ extends ColorJizz
     }
 
     /**
-     * Convert the color to RGB format
+     * Convert the color to RGB format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
      */
@@ -97,11 +95,12 @@ class XYZ extends ColorJizz
         $var_R = max(0, min(255, $var_R * 255));
         $var_G = max(0, min(255, $var_G * 255));
         $var_B = max(0, min(255, $var_B * 255));
+
         return new RGB($var_R, $var_G, $var_B);
     }
 
     /**
-     * Convert the color to XYZ format
+     * Convert the color to XYZ format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
      */
@@ -111,7 +110,7 @@ class XYZ extends ColorJizz
     }
 
     /**
-     * Convert the color to Yxy format
+     * Convert the color to Yxy format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
      */
@@ -120,11 +119,12 @@ class XYZ extends ColorJizz
         $Y = $this->y;
         $x = ($this->x == 0) ? 0 : $this->x / ($this->x + $this->y + $this->z);
         $y = ($this->y == 0) ? 0 : $this->y / ($this->x + $Y + $this->z);
+
         return new Yxy($Y, $x, $y);
     }
 
     /**
-     * Convert the color to HSL format
+     * Convert the color to HSL format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
      */
@@ -134,7 +134,7 @@ class XYZ extends ColorJizz
     }
 
     /**
-     * Convert the color to HSV format
+     * Convert the color to HSV format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
      */
@@ -144,7 +144,7 @@ class XYZ extends ColorJizz
     }
 
     /**
-     * Convert the color to CMY format
+     * Convert the color to CMY format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
      */
@@ -154,7 +154,7 @@ class XYZ extends ColorJizz
     }
 
     /**
-     * Convert the color to CMYK format
+     * Convert the color to CMYK format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
      */
@@ -164,7 +164,7 @@ class XYZ extends ColorJizz
     }
 
     /**
-     * Convert the color to CIELab format
+     * Convert the color to CIELab format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
      */
@@ -205,7 +205,7 @@ class XYZ extends ColorJizz
     }
 
     /**
-     * Convert the color to CIELCh format
+     * Convert the color to CIELCh format.
      *
      * @return \MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
      */
@@ -215,7 +215,7 @@ class XYZ extends ColorJizz
     }
 
     /**
-     * A string representation of this color in the current format
+     * A string representation of this color in the current format.
      *
      * @return string The color in format: $x,$y,$z
      */
