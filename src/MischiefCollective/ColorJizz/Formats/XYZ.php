@@ -10,6 +10,7 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * XYZ represents the XYZ color format.
@@ -23,19 +24,19 @@ class XYZ extends ColorJizz
      * The x.
      * @var float
      */
-    public $x;
+    public float $x;
 
     /**
      * The y.
      * @var float
      */
-    public $y;
+    public float $y;
 
     /**
      * The z.
      * @var float
      */
-    public $z;
+    public float $z;
 
     /**
      * Create a new XYZ color.
@@ -44,7 +45,7 @@ class XYZ extends ColorJizz
      * @param float $y The y dimension
      * @param float $z The z dimension
      */
-    public function __construct($x, $y, $z)
+    public function __construct(float $x, float $y, float $z)
     {
         $this->toSelf = 'toXYZ';
         $this->x = $x;
@@ -55,9 +56,10 @@ class XYZ extends ColorJizz
     /**
      * Convert the color to Hex format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
+     * @return Hex the color in Hex format
+     * @throws InvalidArgumentException
      */
-    public function toHex()
+    public function toHex(): Hex
     {
         return $this->toRGB()->toHex();
     }
@@ -65,9 +67,10 @@ class XYZ extends ColorJizz
     /**
      * Convert the color to RGB format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
+     * @return RGB the color in RGB format
+     * @throws InvalidArgumentException
      */
-    public function toRGB()
+    public function toRGB(): RGB
     {
         $var_X = $this->x / 100;
         $var_Y = $this->y / 100;
@@ -102,9 +105,9 @@ class XYZ extends ColorJizz
     /**
      * Convert the color to XYZ format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
+     * @return XYZ the color in XYZ format
      */
-    public function toXYZ()
+    public function toXYZ(): static
     {
         return $this;
     }
@@ -112,9 +115,9 @@ class XYZ extends ColorJizz
     /**
      * Convert the color to Yxy format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
+     * @return Yxy the color in Yxy format
      */
-    public function toYxy()
+    public function toYxy(): Yxy
     {
         $Y = $this->y;
         $x = ($this->x == 0) ? 0 : $this->x / ($this->x + $this->y + $this->z);
@@ -126,9 +129,10 @@ class XYZ extends ColorJizz
     /**
      * Convert the color to HSL format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
+     * @return HSL the color in HSL format
+     * @throws InvalidArgumentException
      */
-    public function toHSL()
+    public function toHSL(): HSL
     {
         return $this->toHSV()->toHSL();
     }
@@ -136,9 +140,10 @@ class XYZ extends ColorJizz
     /**
      * Convert the color to HSV format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
+     * @return HSV the color in HSV format
+     * @throws InvalidArgumentException
      */
-    public function toHSV()
+    public function toHSV(): HSV
     {
         return $this->toRGB()->toHSV();
     }
@@ -146,9 +151,10 @@ class XYZ extends ColorJizz
     /**
      * Convert the color to CMY format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
+     * @return CMY the color in CMY format
+     * @throws InvalidArgumentException
      */
-    public function toCMY()
+    public function toCMY(): CMY
     {
         return $this->toRGB()->toCMY();
     }
@@ -156,9 +162,10 @@ class XYZ extends ColorJizz
     /**
      * Convert the color to CMYK format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
+     * @return CMYK the color in CMYK format
+     * @throws InvalidArgumentException
      */
-    public function toCMYK()
+    public function toCMYK(): CMYK
     {
         return $this->toCMY()->toCMYK();
     }
@@ -166,9 +173,9 @@ class XYZ extends ColorJizz
     /**
      * Convert the color to CIELab format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
+     * @return CIELab the color in CIELab format
      */
-    public function toCIELab()
+    public function toCIELab(): CIELab
     {
         $Xn = 95.047;
         $Yn = 100.000;
@@ -207,9 +214,9 @@ class XYZ extends ColorJizz
     /**
      * Convert the color to CIELCh format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
+     * @return CIELCh the color in CIELCh format
      */
-    public function toCIELCh()
+    public function toCIELCh(): CIELCh
     {
         return $this->toCIELab()->toCIELCh();
     }
@@ -219,7 +226,7 @@ class XYZ extends ColorJizz
      *
      * @return string The color in format: $x,$y,$z
      */
-    public function __toString()
+    public function __toString(): string
     {
         return sprintf('%01.4f, %01.4f, %01.4f', $this->x, $this->y, $this->z);
     }

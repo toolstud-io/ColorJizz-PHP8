@@ -21,7 +21,7 @@ use MischiefCollective\ColorJizz\Formats\RGB;
  */
 abstract class ColorJizz
 {
-    protected $toSelf;
+    protected string $toSelf;
 
     /**
      * Convert the color to Hex format.

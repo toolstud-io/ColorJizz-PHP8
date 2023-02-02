@@ -10,6 +10,7 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * HSV represents the HSV color format.
@@ -23,19 +24,19 @@ class HSV extends ColorJizz
      * The hue.
      * @var float
      */
-    public $hue;
+    public float $hue;
 
     /**
      * The saturation.
      * @var float
      */
-    public $saturation;
+    public float $saturation;
 
     /**
      * The value.
      * @var float
      */
-    public $value;
+    public float $value;
 
     /**
      * Create a new HSV color.
@@ -44,7 +45,7 @@ class HSV extends ColorJizz
      * @param float $saturation The saturation (0-1)
      * @param float $value The value (0-1)
      */
-    public function __construct($hue, $saturation, $value)
+    public function __construct(float $hue, float $saturation, float $value)
     {
         $this->toSelf = 'toHSV';
         $this->hue = $hue;
@@ -55,9 +56,10 @@ class HSV extends ColorJizz
     /**
      * Convert the color to Hex format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
+     * @return Hex the color in Hex format
+     * @throws InvalidArgumentException
      */
-    public function toHex()
+    public function toHex(): Hex
     {
         return $this->toRGB()->toHex();
     }
@@ -65,9 +67,10 @@ class HSV extends ColorJizz
     /**
      * Convert the color to RGB format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
+     * @return RGB the color in RGB format
+     * @throws InvalidArgumentException
      */
-    public function toRGB()
+    public function toRGB(): RGB
     {
         $hue = $this->hue / 360;
         $saturation = $this->saturation / 100;
@@ -122,9 +125,10 @@ class HSV extends ColorJizz
     /**
      * Convert the color to XYZ format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
+     * @return XYZ the color in XYZ format
+     * @throws InvalidArgumentException
      */
-    public function toXYZ()
+    public function toXYZ(): XYZ
     {
         return $this->toRGB()->toXYZ();
     }
@@ -132,9 +136,10 @@ class HSV extends ColorJizz
     /**
      * Convert the color to Yxy format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
+     * @return Yxy the color in Yxy format
+     * @throws InvalidArgumentException
      */
-    public function toYxy()
+    public function toYxy(): Yxy
     {
         return $this->toXYZ()->toYxy();
     }
@@ -142,9 +147,9 @@ class HSV extends ColorJizz
     /**
      * Convert the color to HSL format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
+     * @return HSL the color in HSL format
      */
-    public function toHSL()
+    public function toHSL(): HSL
     {
         $h = $this->hue;
         $l = (2 - $this->saturation / 100) * $this->value / 2;
@@ -158,9 +163,9 @@ class HSV extends ColorJizz
     /**
      * Convert the color to HSV format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
+     * @return HSV the color in HSV format
      */
-    public function toHSV()
+    public function toHSV(): static
     {
         return $this;
     }
@@ -168,9 +173,10 @@ class HSV extends ColorJizz
     /**
      * Convert the color to CMY format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
+     * @return CMY the color in CMY format
+     * @throws InvalidArgumentException
      */
-    public function toCMY()
+    public function toCMY(): CMY
     {
         return $this->toRGB()->toCMY();
     }
@@ -178,9 +184,10 @@ class HSV extends ColorJizz
     /**
      * Convert the color to CMYK format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
+     * @return CMYK the color in CMYK format
+     * @throws InvalidArgumentException
      */
-    public function toCMYK()
+    public function toCMYK(): CMYK
     {
         return $this->toCMY()->toCMYK();
     }
@@ -188,9 +195,10 @@ class HSV extends ColorJizz
     /**
      * Convert the color to CIELab format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
+     * @return CIELab the color in CIELab format
+     * @throws InvalidArgumentException
      */
-    public function toCIELab()
+    public function toCIELab(): CIELab
     {
         return $this->toRGB()->toCIELab();
     }
@@ -198,9 +206,10 @@ class HSV extends ColorJizz
     /**
      * Convert the color to CIELCh format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
+     * @return CIELCh the color in CIELCh format
+     * @throws InvalidArgumentException
      */
-    public function toCIELCh()
+    public function toCIELCh(): CIELCh
     {
         return $this->toCIELab()->toCIELCh();
     }
@@ -210,7 +219,7 @@ class HSV extends ColorJizz
      *
      * @return string The color in format: $hue,$saturation,$value
      */
-    public function __toString()
+    public function __toString(): string
     {
         return sprintf('%01.4f, %01.4f, %01.4f', $this->hue, $this->saturation, $this->value);
     }

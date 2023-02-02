@@ -10,6 +10,7 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * CMYK represents the CMYK color format.
@@ -23,25 +24,25 @@ class CMYK extends ColorJizz
      * The cyan.
      * @var float
      */
-    private $cyan;
+    private float $cyan;
 
     /**
      * The magenta.
      * @var float
      */
-    private $magenta;
+    private float $magenta;
 
     /**
      * The yellow.
      * @var float
      */
-    private $yellow;
+    private float $yellow;
 
     /**
      * The key (black).
      * @var float
      */
-    private $key;
+    private float $key;
 
     /**
      * Create a new CMYK color.
@@ -51,7 +52,7 @@ class CMYK extends ColorJizz
      * @param float $yellow The yellow
      * @param float $key The key (black)
      */
-    public function __construct($cyan, $magenta, $yellow, $key)
+    public function __construct(float $cyan, float $magenta, float $yellow, float $key)
     {
         $this->toSelf = 'toCMYK';
         $this->cyan = $cyan;
@@ -60,7 +61,7 @@ class CMYK extends ColorJizz
         $this->key = $key;
     }
 
-    public static function create($cyan, $magenta, $yellow, $key)
+    public static function create(float $cyan, float $magenta, float $yellow, float $key): self
     {
         return new self($cyan, $magenta, $yellow, $key);
     }
@@ -68,9 +69,9 @@ class CMYK extends ColorJizz
     /**
      * Get the amount of Cyan.
      *
-     * @return int The amount of cyan
+     * @return float The amount of cyan
      */
-    public function getCyan()
+    public function getCyan(): float
     {
         return $this->cyan;
     }
@@ -78,9 +79,9 @@ class CMYK extends ColorJizz
     /**
      * Get the amount of Magenta.
      *
-     * @return int The amount of magenta
+     * @return float The amount of magenta
      */
-    public function getMagenta()
+    public function getMagenta(): float
     {
         return $this->magenta;
     }
@@ -88,9 +89,9 @@ class CMYK extends ColorJizz
     /**
      * Get the amount of Yellow.
      *
-     * @return int The amount of yellow
+     * @return float The amount of yellow
      */
-    public function getYellow()
+    public function getYellow(): float
     {
         return $this->yellow;
     }
@@ -98,9 +99,9 @@ class CMYK extends ColorJizz
     /**
      * Get the key (black).
      *
-     * @return int The amount of black
+     * @return float The amount of black
      */
-    public function getKey()
+    public function getKey(): float
     {
         return $this->key;
     }
@@ -108,9 +109,10 @@ class CMYK extends ColorJizz
     /**
      * Convert the color to Hex format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
+     * @return Hex the color in Hex format
+     * @throws InvalidArgumentException
      */
-    public function toHex()
+    public function toHex(): Hex
     {
         return $this->toRGB()->toHex();
     }
@@ -118,9 +120,9 @@ class CMYK extends ColorJizz
     /**
      * Convert the color to RGB format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
+     * @return RGB the color in RGB format
      */
-    public function toRGB()
+    public function toRGB(): RGB
     {
         return $this->toCMY()->toRGB();
     }
@@ -128,9 +130,9 @@ class CMYK extends ColorJizz
     /**
      * Convert the color to XYZ format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
+     * @return XYZ the color in XYZ format
      */
-    public function toXYZ()
+    public function toXYZ(): XYZ
     {
         return $this->toRGB()->toXYZ();
     }
@@ -138,9 +140,9 @@ class CMYK extends ColorJizz
     /**
      * Convert the color to Yxy format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
+     * @return Yxy the color in Yxy format
      */
-    public function toYxy()
+    public function toYxy(): Yxy
     {
         return $this->toXYZ()->toYxy();
     }
@@ -148,9 +150,9 @@ class CMYK extends ColorJizz
     /**
      * Convert the color to HSL format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
+     * @return HSL the color in HSL format
      */
-    public function toHSL()
+    public function toHSL(): HSL
     {
         return $this->toHSV()->toHSL();
     }
@@ -158,9 +160,9 @@ class CMYK extends ColorJizz
     /**
      * Convert the color to HSV format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
+     * @return HSV the color in HSV format
      */
-    public function toHSV()
+    public function toHSV(): HSV
     {
         return $this->toRGB()->toHSV();
     }
@@ -168,9 +170,9 @@ class CMYK extends ColorJizz
     /**
      * Convert the color to CMY format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
+     * @return CMY the color in CMY format
      */
-    public function toCMY()
+    public function toCMY(): CMY
     {
         $cyan = ($this->cyan * (1 - $this->key) + $this->key);
         $magenta = ($this->magenta * (1 - $this->key) + $this->key);
@@ -182,9 +184,9 @@ class CMYK extends ColorJizz
     /**
      * Convert the color to CMYK format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
+     * @return CMYK the color in CMYK format
      */
-    public function toCMYK()
+    public function toCMYK(): static
     {
         return $this;
     }
@@ -192,9 +194,9 @@ class CMYK extends ColorJizz
     /**
      * Convert the color to CIELab format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
+     * @return CIELab the color in CIELab format
      */
-    public function toCIELab()
+    public function toCIELab(): CIELab
     {
         return $this->toRGB()->toCIELab();
     }
@@ -202,9 +204,9 @@ class CMYK extends ColorJizz
     /**
      * Convert the color to CIELCh format.
      *
-     * @return \MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
+     * @return CIELCh the color in CIELCh format
      */
-    public function toCIELCh()
+    public function toCIELCh(): CIELCh
     {
         return $this->toCIELab()->toCIELCh();
     }
@@ -214,7 +216,7 @@ class CMYK extends ColorJizz
      *
      * @return string The color in format: $cyan,$magenta,$yellow,$key
      */
-    public function __toString()
+    public function __toString(): string
     {
         return sprintf('%01.4f, %01.4f, %01.4f, %01.4f', $this->cyan, $this->magenta, $this->yellow, $this->key);
     }

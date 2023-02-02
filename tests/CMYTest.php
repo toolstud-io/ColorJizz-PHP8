@@ -16,9 +16,9 @@ class CMYTest extends TestCase
             for ($m = 0; $m <= 1; $m += 0.1) {
                 for ($y = 0; $y <= 1; $y += 0.1) {
                     $cmy = CMY::create($c, $m, $y)->toHex()->toCMY();
-                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . "Cyan");
-                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . "Magenta");
-                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . "Yellow");
+                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . 'Cyan');
+                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . 'Magenta');
+                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . 'Yellow');
                 }
             }
         }
@@ -33,9 +33,9 @@ class CMYTest extends TestCase
             for ($m = 0; $m <= 1; $m += 0.1) {
                 for ($y = 0; $y <= 1; $y += 0.1) {
                     $cmy = CMY::create($c, $m, $y)->toRGB()->toCMY();
-                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . "Cyan");
-                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . "Magenta");
-                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . "Yellow");
+                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . 'Cyan');
+                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . 'Magenta');
+                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . 'Yellow');
                 }
             }
         }
@@ -50,9 +50,9 @@ class CMYTest extends TestCase
             for ($m = 0; $m <= 1; $m += 0.1) {
                 for ($y = 0; $y <= 1; $y += 0.1) {
                     $cmy = CMY::create($c, $m, $y)->toXYZ()->toCMY();
-                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . "Cyan");
-                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . "Magenta");
-                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . "Yellow");
+                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . 'Cyan');
+                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . 'Magenta');
+                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . 'Yellow');
                 }
             }
         }
@@ -67,9 +67,9 @@ class CMYTest extends TestCase
             for ($m = 0; $m <= 1; $m += 0.1) {
                 for ($y = 0; $y <= 1; $y += 0.1) {
                     $cmy = CMY::create($c, $m, $y)->toCMYK()->toCMY();
-                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . "Cyan");
-                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . "Magenta");
-                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . "Yellow");
+                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . 'Cyan');
+                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . 'Magenta');
+                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . 'Yellow');
                 }
             }
         }
@@ -84,9 +84,9 @@ class CMYTest extends TestCase
             for ($m = 0; $m <= 1; $m += 0.1) {
                 for ($y = 0; $y <= 1; $y += 0.1) {
                     $cmy = CMY::create($c, $m, $y)->toYxy()->toCMY();
-                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . "Cyan");
-                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . "Magenta");
-                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . "Yellow");
+                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . 'Cyan');
+                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . 'Magenta');
+                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . 'Yellow');
                 }
             }
         }
@@ -101,9 +101,9 @@ class CMYTest extends TestCase
             for ($m = 0; $m <= 1; $m += 0.1) {
                 for ($y = 0; $y <= 1; $y += 0.1) {
                     $cmy = CMY::create($c, $m, $y)->toCIELab()->toCMY();
-                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . "Cyan");
-                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . "Magenta");
-                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . "Yellow");
+                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . 'Cyan');
+                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . 'Magenta');
+                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . 'Yellow');
                 }
             }
         }
@@ -118,9 +118,9 @@ class CMYTest extends TestCase
             for ($m = 0; $m <= 1; $m += 0.1) {
                 for ($y = 0; $y <= 1; $y += 0.1) {
                     $cmy = CMY::create($c, $m, $y)->toCIELCh()->toCMY();
-                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . "Cyan");
-                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . "Magenta");
-                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . "Yellow");
+                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . 'Cyan');
+                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . 'Magenta');
+                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . 'Yellow');
                 }
             }
         }
@@ -135,9 +135,9 @@ class CMYTest extends TestCase
             for ($m = 0; $m <= 1; $m += 0.1) {
                 for ($y = 0; $y <= 1; $y += 0.1) {
                     $cmy = CMY::create($c, $m, $y)->toHSV()->toCMY();
-                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . "Cyan");
-                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . "Magenta");
-                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . "Yellow");
+                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . 'Cyan');
+                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . 'Magenta');
+                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . 'Yellow');
                 }
             }
         }
@@ -152,9 +152,9 @@ class CMYTest extends TestCase
             for ($m = 0; $m <= 1; $m += 0.1) {
                 for ($y = 0; $y <= 1; $y += 0.1) {
                     $cmy = CMY::create($c, $m, $y)->toHSL()->toCMY();
-                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . "Cyan");
-                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . "Magenta");
-                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . "Yellow");
+                    $this->assertEqualsWithDelta($c, $cmy->getCyan(), self::DELTA, __CLASS__ . 'Cyan');
+                    $this->assertEqualsWithDelta($m, $cmy->getMagenta(), self::DELTA, __CLASS__ . 'Magenta');
+                    $this->assertEqualsWithDelta($y, $cmy->getYellow(), self::DELTA, __CLASS__ . 'Yellow');
                 }
             }
         }

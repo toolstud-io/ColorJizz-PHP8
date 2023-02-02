@@ -17,14 +17,14 @@ namespace MischiefCollective\ColorJizz;
  */
 class Autoloader
 {
-    public static function register()
+    public static function register(): void
     {
         spl_autoload_register([new self, 'autoload']);
     }
 
-    public static function autoload($class)
+    public static function autoload($class): void
     {
-        if (0 !== strpos($class, 'MischiefCollective\\ColorJizz')) {
+        if (!str_starts_with($class, 'MischiefCollective\\ColorJizz')) {
             return;
         }
 

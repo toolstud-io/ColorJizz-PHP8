@@ -32,7 +32,6 @@ class HexTest extends TestCase
     }
 
     /**
-     *
      * @covers \MischiefCollective\ColorJizz\Formats\Hex
      */
     public function testInvalidColorNameException()
@@ -42,7 +41,6 @@ class HexTest extends TestCase
     }
 
     /**
-     *
      * @covers \MischiefCollective\ColorJizz\Formats\Hex
      */
     public function testInvalidHexValueException()
@@ -52,7 +50,6 @@ class HexTest extends TestCase
     }
 
     /**
-     *
      * @covers \MischiefCollective\ColorJizz\Formats\Hex
      */
     public function testMalformedHexValueException()
