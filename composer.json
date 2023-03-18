@@ -26,6 +26,5 @@
         "lint": [
             "./vendor/bin/php-cs-fixer fix -vvv --show-progress=dots"
         ]
-    },
-    "version": "2.0.6"
+    }
 }
