@@ -6,10 +6,6 @@
 
 ![](assets/unsplash.color.jpg)
 
-## Getting started:
-
-ColorJizz-PHP uses the PSR-0 standards for namespaces, so there should be no trouble using with frameworks like Symfony 2.
-
 ### Installation
 
 ```bash
