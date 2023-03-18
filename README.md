@@ -1,4 +1,5 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/toolstud-io/colorjizz-php8.svg?style=flat-square)](https://packagist.org/packages/toolstud-io/ColorJizz-PHP8)
+[![composer test](https://github.com/toolstud-io/ColorJizz-PHP8/actions/workflows/php.yml/badge.svg)](https://github.com/toolstud-io/ColorJizz-PHP8/actions/workflows/php.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/toolstud-io/ColorJizz-PHP8.svg?style=flat-square)](https://packagist.org/packages/toolstud-io/ColorJizz-PHP8)
 
 # ColorJizz, but for PHP8.0+
