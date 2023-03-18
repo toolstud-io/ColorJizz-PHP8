@@ -1,7 +1,7 @@
 {
-    "name": "mischiefcollective/colorjizz",
+    "name": "toolstud-io/colorjizz-php8",
     "description": "Classes for manipulating colors, converting to different formats and finding color harmonies",
-    "homepage": "https://github.com/pforret/ColorJizz-PHP",
+    "homepage": "https://github.com/toolstud-io/ColorJizz-PHP8",
     "license": "MIT",
     "require": {
         "php": "^8.0"
