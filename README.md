@@ -1,8 +1,8 @@
-#Getting started:
+# Getting started:
 
 ColorJizz-PHP uses the PSR-0 standards for namespaces, so there should be no trouble using with frameworks like Symfony 2.
 
-###Autoloading
+### Autoloading
 
 An autoloader class is provided for when loading ColorJizz yourself.
 
@@ -18,7 +18,7 @@ MischiefCollective\ColorJizz\Autoloader::register();
 
 Now all ColorJizz classes will be automatically loaded in.
 
-###Converting between formats
+### Converting between formats
 
 ColorJizz can convert to and from any of the supported color formats:
 

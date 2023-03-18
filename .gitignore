@@ -6,3 +6,4 @@ build/logs
 /.phpunit.result.cache
 /vendor/
 /.phpunit.cache/
+.DS_Store

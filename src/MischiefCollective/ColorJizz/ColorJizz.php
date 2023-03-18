@@ -126,7 +126,7 @@ abstract class ColorJizz
      * @return ColorJizz The closest color
      * @throws InvalidArgumentException
      */
-    public function websafe(): ColorJizz
+    public function websafe(): self
     {
         $palette = [];
         for ($red = 0; $red <= 255; $red += 51) {
@@ -147,7 +147,7 @@ abstract class ColorJizz
      *
      * @return ColorJizz The closest color
      */
-    public function match(array $palette): ColorJizz
+    public function match(array $palette): self
     {
         $distance = 100000000000;
         $closest = null;
@@ -198,7 +198,7 @@ abstract class ColorJizz
      *
      * @return ColorJizz The greyscale color
      */
-    public function complement(): ColorJizz
+    public function complement(): self
     {
         return $this->hue(180);
     }
@@ -210,6 +210,7 @@ abstract class ColorJizz
         $g = (hexdec(substr($sHexColor, 2, 2)) / 255);
         $b = (hexdec(substr($sHexColor, 4, 2)) / 255);
         $lightness = round((((max($r, $g, $b) + min($r, $g, $b)) / 2) * 100));
+
         return $lightness < 50;
     }
 
@@ -319,7 +320,7 @@ abstract class ColorJizz
      * @return ColorJizz The greyscale color
      * @throws InvalidArgumentException
      */
-    public function greyscale(): ColorJizz
+    public function greyscale(): self
     {
         $a = $this->toRGB();
         $ds = $a->red * 0.3 + $a->green * 0.59 + $a->blue * 0.11;
@@ -336,7 +337,7 @@ abstract class ColorJizz
      *
      * @return ColorJizz The modified color
      */
-    public function hue(int $degreeModifier, bool $absolute = false): ColorJizz
+    public function hue(int $degreeModifier, bool $absolute = false): self
     {
         $a = $this->toCIELCh();
         $a->hue = $absolute ? $degreeModifier : $a->hue + $degreeModifier;
@@ -353,7 +354,7 @@ abstract class ColorJizz
      *
      * @return ColorJizz The modified color
      */
-    public function saturation(int $satModifier, bool $absolute = false): ColorJizz
+    public function saturation(int $satModifier, bool $absolute = false): self
     {
         $a = $this->toHSV();
         $a->saturation = $absolute ? $satModifier : $a->saturation + $satModifier;
@@ -369,7 +370,7 @@ abstract class ColorJizz
      *
      * @return ColorJizz The modified color
      */
-    public function brightness(int $brightnessModifier, bool $absolute = false): ColorJizz
+    public function brightness(int $brightnessModifier, bool $absolute = false): self
     {
         $a = $this->toCIELab();
         $a->lightness = $absolute ? $brightnessModifier : $a->lightness + $brightnessModifier;
