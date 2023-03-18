@@ -4,26 +4,17 @@
 
 # ColorJizz, but for PHP8.0+
 
+![](assets/unsplash.color.jpg)
 
 ## Getting started:
 
 ColorJizz-PHP uses the PSR-0 standards for namespaces, so there should be no trouble using with frameworks like Symfony 2.
 
-### Autoloading
+### Installation
 
-An autoloader class is provided for when loading ColorJizz yourself.
-
-First, include the autoloader and call the static register() function.
-
-
-```php
-<?php
-require_once 'path/to/colorjizz/lib/MischiefCollective/ColorJizz/Autoloader.php';
-MischiefCollective\ColorJizz\Autoloader::register();
-?>
+```bash
+composer require toolstud-io/colorjizz-php8
 ```
-
-Now all ColorJizz classes will be automatically loaded in.
 
 ### Converting between formats
 
