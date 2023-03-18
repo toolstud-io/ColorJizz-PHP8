@@ -1,4 +1,12 @@
-# Getting started:
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/toolstud-io/colorjizz-php8.svg?style=flat-square)](https://packagist.org/packages/toolstud-io/ColorJizz-PHP8)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/toolstud-io/ColorJizz-PHP8/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/toolstud-io/ColorJizz-PHP8/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/toolstud-io/ColorJizz-PHP8/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/toolstud-io/ColorJizz-PHP8/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/toolstud-io/ColorJizz-PHP8.svg?style=flat-square)](https://packagist.org/packages/toolstud-io/ColorJizz-PHP8)
+
+# ColorJizz, but for PHP8.0+
+
+
+## Getting started:
 
 ColorJizz-PHP uses the PSR-0 standards for namespaces, so there should be no trouble using with frameworks like Symfony 2.
 
